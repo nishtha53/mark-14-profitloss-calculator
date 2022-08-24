@@ -18,7 +18,6 @@ const calculate = (cp,sq,sp) => {
         const netProfit = (sp - cp) * sq
         const profitPercentage = Math.trunc((netProfit / cp) * 100)
         showResult(`Your profit is ${netProfit} and profit percentage is ${profitPercentage}%`, 'green')
-        // output.style.color = 'green'
     }else if(sp < cp){
         const netLoss = (cp - sp) * sq
         const lossPercentage = Math.trunc((netLoss / cp) * 100)

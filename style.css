@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: lightcyan;
+}
+
+header h1{
+    padding: 20px 20px;
+    text-align: center;
+    color: darkcyan;
+}
+
+section {
+    width: 80vw;
+    margin: 10px auto;
+    text-align: center;
+}
+
+div{
+    margin: 20px;
+}
+
+div>h2{
+    /* margin-bottom: 5px; */
+    text-align: start;
+    color: darkcyan;
+}
+
+div>input{
+    margin: 18px 0px 25px;
+    padding: 10px;
+    border: 2px solid darkcyan;
+    border-radius: 8px;
+    font-size: 20px;
+    outline: none;
+    width: 70%;
+    display: flex;
+    color: darkcyan;
+}
+
+button {
+    padding: 10px 40px;
+    border: none;
+    background-color: darkcyan;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+#output{
+    font-size: 20px;
+    padding: 18px 0px;
+    display: none;
+    font-weight: bold;
+    text-align: start;
+}
+
+#footer{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  #footer ul{
+    list-style: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start: 0px;
+  }
+  #footer ul li{
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    cursor: pointer;
+  }
+  #footer ul li i{
+    color: darkcyan;
+  }

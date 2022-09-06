@@ -32,8 +32,8 @@ div>h2{
 }
 
 div>input{
-    margin: 18px 0px 25px;
-    padding: 10px;
+    /* margin: 18px 0px 25px; */
+    padding: 10px; 
     border: 2px solid darkcyan;
     border-radius: 8px;
     font-size: 20px;
@@ -51,13 +51,13 @@ button {
     font-size: 20px;
     border-radius: 10px;
     cursor: pointer;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     display: flex;
 }
 
 #output{
     font-size: 20px;
-    /* padding: 18px 0px; */
+    padding: 18px 0px;
     /* display: none; */
     font-weight: bold;
     text-align: start;

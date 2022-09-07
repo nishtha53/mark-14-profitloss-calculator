@@ -21,15 +21,6 @@ section {
     text-align: center;
 }
 
-div{
-    margin: 20px;
-}
-
-div>h2{
-    /* margin-bottom: 5px; */
-    text-align: start;
-    color: darkcyan;
-}
 
 div>input{
     padding: 10px; 

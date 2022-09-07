@@ -1,48 +1,62 @@
-const costPriceInput = document.querySelector('#cost-price')
-const stockQuantityInput = document.querySelector('#stock-quantity')
-const sellingPriceInput = document.querySelector('#selling-price')
-const checkBtn = document.querySelector('#check-btn')
-const output = document.querySelector('#output')
+const initialPrice = document.querySelector("#initial-price")
+const stockQuantity = document.querySelector("#stock-qty")
+const currentPrice = document.querySelector("#current-price")
+const form = document.querySelector("#submit-form")
+const outputDiv = document.querySelector("#output")
 
+form.addEventListener('submit', checkProfitOrLoss)
 
-const showResult = (msg,color) => {
-    output.style.display = 'block'
-    output.style.color = color
-    output.innerText = msg
-}
+function checkProfitOrLoss(e){
 
+    e.preventDefault()
 
+    let initialPriceNum = Number(initialPrice.value)
+    let stockQuantityNum = Number(stockQuantity.value)
+    let currentPriceNum = Number(currentPrice.value)
 
-const calculate = (cp,sq,sp) => {
-    if(sp > cp){
-        const netProfit = (sp - cp) * sq
-        const profitPercentage = Math.trunc((netProfit / cp) * 100)
-        showResult(`Your profit is ${netProfit} and profit percentage is ${profitPercentage}%`, 'green')
-    }else if(sp < cp){
-        const netLoss = (cp - sp) * sq
-        const lossPercentage = Math.trunc((netLoss / cp) * 100)
-        showResult(`Your loss is ${netLoss} and loss percentage is ${lossPercentage}%`,'red')
-        // output.style.color = 'red'
-    }else{
-        showResult('No profit no loss','blue')
+    if(initialPriceNum < 0 || currentPriceNum < 0 || stockQuantityNum < 0) {
+        outputDiv.innerText = "Invalid input. Make sure all the inputs are filled and are non zero positive numbers"
+
+    } else {
+        if(initialPriceNum< currentPriceNum){
+            calculateProfit(initialPriceNum, currentPriceNum, stockQuantityNum)
+        }
+    
+        else if(currentPriceNum < initialPriceNum){
+            calculateLoss(initialPriceNum, currentPriceNum, stockQuantityNum)
+        }
+    
+        else {
+            outputDiv.innerText= ("You are breaking even")
+        }
+
+        console.log(initialPriceNum, currentPriceNum, stockQuantityNum)
     }
+    
 }
 
-const handleClick = () => {
+function calculateProfit(initialPriceNum, currentPriceNum, stockQuantityNum){
+    totalInitial = initialPriceNum * stockQuantityNum
+    totalCurrent = currentPriceNum * stockQuantityNum
 
-    output.style.display = 'none'
+    
 
-    const cp = Number(costPriceInput.value)
-    const sq = Number(stockQuantityInput.value)
-    const sp = Number(sellingPriceInput.value)
+    profitMade = totalCurrent-totalInitial
 
-    if(cp>0 && sq>0 && sp>0){
-        calculate(cp,sq,sp)
-    }else if(cp<0 || sq<0 || sp<0){
-        showResult('Please Add valid data', 'red')
-    }else{
-        showResult('Please Add all fields', 'red')
-    }
+    profitPercentage = Math.round(((profitMade / totalInitial)* 100))
+
+    outputDiv.innerText = "Congratulations! yours   profit is " + profitMade + " at " + profitPercentage + "% of returns"
+
+    
 }
 
-checkBtn.addEventListener('click',handleClick)
+function calculateLoss(initialPriceNum, currentPriceNum, stockQuantityNum){
+    totalInitial = initialPriceNum * stockQuantityNum
+    totalCurrent = currentPriceNum * stockQuantityNum
+
+    lossMade = totalInitial - totalCurrent
+    
+    lossPercentage = ((lossMade / totalInitial)*100)
+
+    outputDiv.innerText = "Oops!!  you have made a total loss of " + lossMade + " at " + lossPercentage + "% of loss percentage"
+}
